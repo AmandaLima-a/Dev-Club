@@ -65,3 +65,45 @@ p {
     line-height: 27px;
     cursor: pointer;
 }
+
+@media screen and (max-width: 900px) {
+    .link-header {
+        display: none;
+    }
+
+    .button-header {
+        margin-left: 200px;
+    }
+
+    main {
+        text-align: center;
+    }
+
+    aside {
+        display: block;
+        margin: -350px auto;
+    }
+
+    h1 {
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+
+    p {
+        font-size: 18px;
+        line-height: 33px;
+        text-align: center;
+        width: 304px;
+        margin: 15px auto;
+    }
+
+    .img-logo {
+        width: 312px;
+        height: 288px;
+        position: relative;
+        top: 290px;
+        display: block;
+        margin: auto;
+    }
+}
