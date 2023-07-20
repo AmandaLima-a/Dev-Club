@@ -83,10 +83,16 @@
     }
 
 
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 900px) {
+    header {
+        display: none;
+    }
+   
     .img-logo {
+        display: block;
         Width: 354px;
         Height: 317px;
+        margin: 60px auto 10px;
     }
 
     h1 {
@@ -105,18 +111,16 @@
         text-align: center;
     }
 
+    p {
+        display: none;
+    }
+
+    section {
+        display: block;
+        margin: 0 auto;
+    }
+
     .button-section {
-        background: #ADFF00;
-        border-radius: 30px;
-        border: none;
-        Width: 239px;
-        Height: 64px;
-        color: #000000;
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 34.13px;
-        cursor: pointer;
-        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-        
+        margin: 20px 70px;
     }
 }
