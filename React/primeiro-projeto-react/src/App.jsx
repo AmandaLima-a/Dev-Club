@@ -2,15 +2,13 @@
 import { useState } from 'react';
 import { v4 as uuid } from 'uuid';
 
-import { FaRocket, FaTrash } from "react-icons/fa";
-
-import { Container, ToDoList, Input, Button, ListItem } from './styles.js';
+import { Container, ToDoList, Input, Button, ListItem, Trash, Rocket, Titulo } from './styles.js';
 
 
 function App() {
   // Código JavaScript:
 
-  const [list, setList] = useState([{ id: uuid(), task: "Nada", finished: true }])
+  const [list, setList] = useState([])
   const [task, setTask] = useState('')
 
 
@@ -21,7 +19,26 @@ function App() {
   }
 
   function cliqueiNoBotao() {
-    setList([...list, { id: uuid(), task, finished: false }])  // OU task: task
+    if (task) { // se o setTask existir fara isso:
+      setList([...list, { id: uuid(), task, finished: false }])  // OU task: task
+    } // senão não fara nada
+    
+  }
+
+  function finalizarTarefa(id) {
+
+    const newList = list.map(item => (
+      item.id == id ? { ...item, finished: !item.finished } : item // procura item com o mesmo id da tarefa clicada e troca SÒ O FINISHED o resto cnt igual, caso id diferente permanece igual
+    ))
+
+    setList(newList)
+  }
+
+  function deletarTarefa(id) {
+
+    const newList = list.filter(item => item.id !== id)
+
+    setList(newList)
   }
 
   // Retorna código HTML
@@ -32,13 +49,19 @@ function App() {
         <Button onClick={cliqueiNoBotao}>Adicionar</Button>
 
         <ul>
-          {list.map( item => (
-            <ListItem isFinished={item.finished}>
-              <FaRocket />
-              <li key={item.id}>{item.task}</li>
-              <FaTrash />
-            </ListItem>
-          ))}
+          {
+            list.length > 0 ? (
+              list.map(item => (
+                <ListItem isFinished={item.finished} key={item.id}>
+                  <Rocket onClick={() => finalizarTarefa(item.id)} />
+                  <li>{item.task}</li>
+                  <Trash onClick={() => deletarTarefa(item.id)} />
+                </ListItem>
+              ))
+            ) : (
+              <Titulo>Não há itens na lista</Titulo>
+            )
+             }
         </ul>
       </ToDoList>
     </Container>

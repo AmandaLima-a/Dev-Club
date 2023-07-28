@@ -1,5 +1,7 @@
 import styled from 'styled-components'
 
+import { FaRocket, FaTrash } from "react-icons/fa";
+
 export const Container = styled.div`    // TEM QUE COMEÇAR COM LETRA MAIUSCULA. É OBRIGATORIO
     background: linear-gradient(90deg, #383838 0%, #000000 81.25%);
     width: 100vw;
@@ -27,6 +29,11 @@ export const Input = styled.input`
     border: 2px solid rgba(209, 211, 212, 0.4);
     border-radius: 5px;
     margin-right: 30px;
+
+    &::placeholder {
+        color: black;
+
+    }
 `
 
 export const Button = styled.button`
@@ -38,6 +45,15 @@ export const Button = styled.button`
     font-weight: 900;
     line-height:2px ;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+        opacity: .8;
+    }
+
+    &:active {
+        opacity: .6;
+    }
 `
 
 export const ListItem = styled.div`
@@ -55,4 +71,16 @@ export const ListItem = styled.div`
     li {
         list-style: none;
     }
+`
+
+export const Rocket = styled(FaRocket)`
+    cursor: pointer;
+`
+
+export const Trash = styled(FaTrash)`
+    cursor: pointer;
+`
+
+export const Titulo = styled.h3`
+    text-align: center;
 `
